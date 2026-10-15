@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARCANA — Тень с изумрудными глазами</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <canvas id="particles"></canvas>
+
+  <header class="hero">
+    <div class="hero__scene">
+      <div class="cat" id="cat">
+        <object type="image/svg+xml" data="arcana.svg" class="cat__svg"></object>
+        <div class="cat__eyes" id="catEyes">
+          <span class="cat__eye cat__eye--left"></span>
+          <span class="cat__eye cat__eye--right"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__content">
+      <div class="title-wrap">
+        <h1 class="glitch-title" data-text="ARCANA">ARCANA</h1>
+
+        <div class="floating-cards">
+          <div class="card card--moon">
+            <span>XVIII</span>
+            <span class="card__name">Луна</span>
+          </div>
+          <div class="card card--sun">
+            <span>XIX</span>
+            <span class="card__name">Солнце</span>
+          </div>
+          <div class="card card--queen">
+            <span>Королева</span>
+            <span class="card__name">Кубков</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="hero__tagline">Тень с изумрудными глазами.</p>
+
+      <button class="magnetic-btn" id="summonBtn">
+        <span>ПРИЗВАТЬ ФАМИЛЬЯРА</span>
+      </button>
+    </div>
+  </header>
+
+  <section class="exploded" id="exploded">
+    <h2 class="section-title">Разбор</h2>
+    <div class="exploded__scene">
+      <div class="exploded__card">
+        <div class="exploded__layer exploded__layer--base" data-z="0">
+          <div class="exploded__stars"></div>
+        </div>
+        <div class="exploded__layer exploded__layer--frame" data-z="110"></div>
+        <div class="exploded__layer exploded__layer--symbol" data-z="220">
+          <span class="exploded__moon">☾</span>
+        </div>
+        <div class="exploded__layer exploded__layer--text" data-z="310">
+          <span class="exploded__num">XVIII</span>
+          <span class="exploded__title">Луна</span>
+        </div>
+      </div>
+    </div>
+    <p class="exploded__hint">Прокрути — карта разберётся</p>
+  </section>
+
+  <section class="arcana" id="arcana">
+    <h2 class="section-title">Три Аркана</h2>
+    <div class="arcana__grid">
+      <div class="tarot-card tarot-card--moon">
+        <div class="tarot-card__img">
+          <img src="moon.jpg" alt="Луна">
+        </div>
+        <div class="tarot-card__info">
+          <span class="tarot-card__num">XVIII</span>
+          <span class="tarot-card__title">Луна</span>
+          <span class="tarot-card__text">Тайна. Инстинкт. Ночь.</span>
+        </div>
+      </div>
+
+      <div class="tarot-card tarot-card--sun">
+        <div class="tarot-card__img">
+          <img src="sun.jpg" alt="Солнце">
+        </div>
+        <div class="tarot-card__info">
+          <span class="tarot-card__num">XIX</span>
+          <span class="tarot-card__title">Солнце</span>
+          <span class="tarot-card__text">Свет. Радость. Жизнь.</span>
+        </div>
+      </div>
+
+      <div class="tarot-card tarot-card--queen">
+        <div class="tarot-card__img">
+          <img src="water.jpg" alt="Королева Кубков">
+        </div>
+        <div class="tarot-card__info">
+          <span class="tarot-card__num">XIV</span>
+          <span class="tarot-card__title">Королева Кубков</span>
+          <span class="tarot-card__text">Вода. Интуиция. Баланс.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cups" id="cups">
+    <h2 class="section-title">Кубки</h2>
+    <div class="cups__grid">
+      <div class="cup" data-value="87">
+        <div class="cup__vessel">
+          <div class="cup__liquid"></div>
+        </div>
+        <span class="cup__label">Луна · 87%</span>
+      </div>
+      <div class="cup" data-value="94">
+        <div class="cup__vessel">
+          <div class="cup__liquid"></div>
+        </div>
+        <span class="cup__label">Солнце · 94%</span>
+      </div>
+      <div class="cup" data-value="78">
+        <div class="cup__vessel">
+          <div class="cup__liquid"></div>
+        </div>
+        <span class="cup__label">Кубки · 78%</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2 class="section-title">Посмотри</h2>
+    <p class="cta__subtitle">Попробуй</p>
+    <button class="magnetic-btn magnetic-btn--big magnetic-btn--final" id="finalBtn">
+      <span>УЗНАЙ</span>
+    </button>
+  </section>
+
+  <div class="hud-eye hud-eye--tl"></div>
+  <div class="hud-eye hud-eye--tr"></div>
+  <div class="hud-eye hud-eye--bl"></div>
+  <div class="hud-eye hud-eye--br"></div>
+
+  <div class="ritual" id="ritual">
+  <div class="ritual__dark"></div>
+  <div class="ritual__glitch" id="ritualGlitch"></div>
+  <div class="ritual__card">
+    <span class="ritual__num" id="ritualNum">XIX</span>
+    <span class="ritual__title" id="ritualTitle">Солнце</span>
+    <p class="ritual__text" id="ritualText">Свет уже нашёл тебя.</p>
+  </div>
+  <div class="ritual__final-wrap">
+    <img src="cat.svg" alt="" class="ritual__cat">
+    <p class="ritual__final" id="ritualFinal">Она гордится тобой.</p>
+  </div>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
